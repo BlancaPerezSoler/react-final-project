@@ -1,6 +1,11 @@
+.container{
+    border: 1px solid gray;
+    max-width: 600px;
+}
 
 
-
-
-
+footer{
+    display: flex;
+    justify-content: center;
+}
 

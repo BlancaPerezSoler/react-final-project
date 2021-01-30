@@ -8,11 +8,10 @@ function App() {
   
     <Weather/>
    
-    <footer>
-     Coded by <a href="https://www.linkedin.com/in/blancaperezsoler/" target="_blank">Blanca Perez Soler</a> <a href="https://github.com/BlancaPerezSoler/react-final-project" target="_blank">Open source</a>
-    </footer>
-    
   </div> 
+  <footer>
+   Coded by <a style={{marginLeft:"6px"}} href="https://www.linkedin.com/in/blancaperezsoler/" target="_blank">Blanca Perez Soler </a>.<a style={{marginLeft:"6px"}} href="https://github.com/BlancaPerezSoler/react-final-project" target="_blank">Open source</a>
+    </footer>
   </div>
   );  
 }

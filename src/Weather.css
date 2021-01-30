@@ -1,3 +1,22 @@
+Body{
+    color:#878787;
+}
+
 ul{
     list-style: none;
+}
+
+
+img{
+    padding-bottom: 30px;
+    margin-bottom: auto;
+}
+.temperature{
+    color: black;
+    font-size: 60px;
+}
+
+.units{
+    position: relative;
+    top: -35px;
 }
