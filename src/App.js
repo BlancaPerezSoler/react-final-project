@@ -4,11 +4,15 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        Weather App
-      </header>
+      <div className="container">
+      
+      <p>Weather App</p>  
+      
+  
+    </div>
     </div>
   );
 }
+
 
 export default App;
