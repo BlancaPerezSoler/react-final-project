@@ -10,11 +10,14 @@ export default function Weather(props){
     function handleResponse(response){
         setLoaded(true);
         setWeather({
+            
             temperature:response.data.main.temp,
             city:response.data.name, 
             humidity: response.data.main.humidity, 
-            wind:response.data.wind.speed
-        })
+            wind:response.data.wind.speed,
+            description: response.data.weather[0].description
+        });
+        
     }
 
         if(loaded){
@@ -33,14 +36,14 @@ export default function Weather(props){
 
         <h1>{props.defaultCity}</h1>
         <h5>Saturday 10.30</h5>
-        <h5>Cloudy</h5>
+        <h5 class="text-capitalize">{weather.description}</h5>
  
  <div className="row">
      <div className="col-3">
          
          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
          
-     <span className="temperature">{weather.temperature}</span> <span className="units" >C</span>
+     <span className="temperature">{Math.round(weather.temperature)}</span> <span className="units" >C</span>
      </div>
 <div className="col-6">
     <ul>
@@ -52,9 +55,9 @@ export default function Weather(props){
     </div>
 
     )} else{
-const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
-    let city="Amsterdam";
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
+    let city= "Amsterdam";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading..."
