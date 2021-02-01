@@ -4,13 +4,15 @@ import './App.css';
 function App() {
   return ( 
   <div className="App">  
+
+  
   <div className="container">
   
-    <Weather/>
+    <Weather defaultCity="London"/>
    
   </div> 
   <footer>
-   Coded by <a style={{marginLeft:"6px"}} href="https://www.linkedin.com/in/blancaperezsoler/" target="_blank">Blanca Perez Soler </a>.<a style={{marginLeft:"6px"}} href="https://github.com/BlancaPerezSoler/react-final-project" target="_blank">Open source</a>
+   Coded by <a style={{marginLeft:"6px"}} href="https://www.linkedin.com/in/blancaperezsoler/" target="_blank" rel="noreferrer">Blanca Perez Soler </a>.<a style={{marginLeft:"6px"}} href="https://github.com/BlancaPerezSoler/react-final-project" target="_blank"rel="noreferrer">Open source</a>
     </footer>
   </div>
   );  

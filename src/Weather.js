@@ -1,7 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, {useState} from "react";
 import "./Weather.css";
-export default function Weather(){
-    return(
+
+
+export default function Weather(props){
+    const[loaded, setLoaded]= useState(false);
+    const [weather, setWeather]= useState({});
+
+    function handleResponse(response){
+        setLoaded(true);
+        setWeather({
+            temperature:response.data.main.temp,
+            city:response.data.name, 
+            humidity: response.data.main.humidity, 
+            wind:response.data.wind.speed
+        })
+    }
+
+        if(loaded){
+ return(
         <div className= "Weather">
        <form>
            <div className="row">
@@ -14,7 +31,7 @@ export default function Weather(){
            </div>
         </form>
 
-        <h1>Amsterdam</h1>
+        <h1>{props.defaultCity}</h1>
         <h5>Saturday 10.30</h5>
         <h5>Cloudy</h5>
  
@@ -23,18 +40,25 @@ export default function Weather(){
          
          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
          
-     <span className="temperature">6</span> <span className="units" >C</span>
+     <span className="temperature">{weather.temperature}</span> <span className="units" >C</span>
      </div>
 <div className="col-6">
     <ul>
-        <li>Humidity: 20%</li>
-        <li>Wind: 5 km/h</li>
+        <li>Humidity: {weather.humidity}%</li>
+        <li>Wind: {weather.wind} km/h</li>
     </ul>
 </div>
  </div>
-
-
     </div>
 
-    );
-}
+    )} else{
+const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
+    let city="Amsterdam";
+    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading..."
+        }   
+    }
+
+
