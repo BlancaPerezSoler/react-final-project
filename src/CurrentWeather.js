@@ -8,7 +8,8 @@ export default function CurrentWeather(props){
         <div className="CurrentWeather">
 
                <h1>{props.data.city}</h1>
-        <h5> Last updated:{" "}<CurrentDate date={props.data.date}/></h5>
+         
+        <h5> <small>Last Updated:</small>{" "}<CurrentDate date={props.data.date}/></h5>
         <h5 class="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
