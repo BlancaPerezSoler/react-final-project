@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {useState} from "react";
 import Loader from "react-loader-spinner";
+import CurrentDate from "./CurrentDate";
 import "./Weather.css";
 
 
@@ -16,7 +17,8 @@ export default function Weather(props){
             city:response.data.name, 
             humidity: response.data.main.humidity, 
             wind:response.data.wind.speed,
-            description: response.data.weather[0].description
+            description: response.data.weather[0].description, 
+            date: new Date (response.data.dt * 1000)
         });
 
         setLoaded(true);
@@ -37,7 +39,7 @@ export default function Weather(props){
         </form>
 
         <h1>{props.defaultCity}</h1>
-        <h5>Saturday 10.30</h5>
+        <h5> <CurrentDate date={weather.date}/></h5>
         <h5 class="text-capitalize">{weather.description}</h5>
  
  <div className="row">
