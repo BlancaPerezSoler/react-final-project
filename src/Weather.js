@@ -39,11 +39,12 @@ export default function Weather(props){
         </form>
 
         <CurrentWeather data={weather} />
-
-        )} else{
+</div>
+        );
+    } else{
 
         const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
-        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
          axios.get(apiUrl).then(handleResponse);
 
         return (
@@ -55,6 +56,7 @@ export default function Weather(props){
         width={100}
         timeout={3000} 
       />
-    )
+    );
+ }
 
-        }  
+ }  

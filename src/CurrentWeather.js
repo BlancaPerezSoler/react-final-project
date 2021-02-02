@@ -7,8 +7,8 @@ export default function CurrentWeather(props){
     return (
         <div className="CurrentWeather">
 
-               <h1>{props.defaultCity}</h1>
-        <h5> <CurrentDate date={props.data.date}/></h5>
+               <h1>{props.data.city}</h1>
+        <h5> {" "}<CurrentDate date={props.data.date}/></h5>
         <h5 class="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
@@ -26,7 +26,7 @@ export default function CurrentWeather(props){
 </div>
  </div>
     </div>
-     
+    );
     
         
 }
