@@ -4,12 +4,18 @@ Body{
 
 ul{
     list-style: none;
+    margin-top: 25px;
 }
 
 
 img{
     padding-bottom: 30px;
     margin-bottom: auto;
+}
+
+form{
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 .temperature{
     color: black;

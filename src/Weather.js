@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, {useState} from "react";
+import Loader from "react-loader-spinner";
 import "./Weather.css";
 
 
@@ -8,7 +9,7 @@ export default function Weather(props){
     const [weather, setWeather]= useState({});
 
     function handleResponse(response){
-        setLoaded(true);
+        
         setWeather({
             
             temperature:response.data.main.temp,
@@ -17,7 +18,8 @@ export default function Weather(props){
             wind:response.data.wind.speed,
             description: response.data.weather[0].description
         });
-        
+
+        setLoaded(true);
     }
 
         if(loaded){
@@ -29,7 +31,7 @@ export default function Weather(props){
         <input type="search"  placeholder="Type a city..." autoFocus="on" className="form-control"/>
                </div>
             <div className="col-3">
-        <input type="submit" className="btn btn-primary"/>
+        <input type="submit" className="btn btn-primary w-100" value="Search"/>
             </div>
            </div>
         </form>
@@ -48,7 +50,7 @@ export default function Weather(props){
 <div className="col-6">
     <ul>
         <li>Humidity: {weather.humidity}%</li>
-        <li>Wind: {weather.wind} km/h</li>
+        <li>Wind: {Math.round(weather.wind)} km/h</li>
     </ul>
 </div>
  </div>
@@ -60,7 +62,16 @@ export default function Weather(props){
     let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
-    return "Loading..."
+    return (
+        
+          <Loader
+        type="Puff"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} 
+      />
+    )
         }   
     }
 
