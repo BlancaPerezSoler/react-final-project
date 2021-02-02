@@ -1,7 +1,7 @@
 import axios from "axios";
-import React, {useState} from "react";
 import Loader from "react-loader-spinner";
-import CurrentDate from "./CurrentDate";
+import React, {useState} from "react";
+import CurrentWeather from "./CurrentWeather";
 import "./Weather.css";
 
 
@@ -38,33 +38,15 @@ export default function Weather(props){
            </div>
         </form>
 
-        <h1>{props.defaultCity}</h1>
-        <h5> <CurrentDate date={weather.date}/></h5>
-        <h5 class="text-capitalize">{weather.description}</h5>
- 
- <div className="row">
-     <div className="col-3">
-         
-         <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
-         
-     <span className="temperature">{Math.round(weather.temperature)}</span> <span className="units" >C</span>
-     </div>
-<div className="col-6">
-    <ul>
-        <li>Humidity: {weather.humidity}%</li>
-        <li>Wind: {Math.round(weather.wind)} km/h</li>
-    </ul>
-</div>
- </div>
-    </div>
+        <CurrentWeather data={weather} />
 
-    )} else{
-    const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
-    let city= "Amsterdam";
-    let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+        )} else{
 
-    return (
+        const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
+        let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+         axios.get(apiUrl).then(handleResponse);
+
+        return (
         
           <Loader
         type="Puff"
@@ -74,7 +56,5 @@ export default function Weather(props){
         timeout={3000} 
       />
     )
-        }   
-    }
 
-
+        }  
