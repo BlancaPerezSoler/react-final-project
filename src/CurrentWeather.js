@@ -8,11 +8,11 @@ export default function CurrentWeather(props){
         <div className="CurrentWeather">
 
                <h1>{props.data.city}</h1>
-        <h5> {" "}<CurrentDate date={props.data.date}/></h5>
+        <h5> Last updated:{" "}<CurrentDate date={props.data.date}/></h5>
         <h5 class="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
-     <div className="col-3">
+     <div className="col-4">
          
          <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
          
