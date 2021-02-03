@@ -14,14 +14,14 @@ export default function CurrentWeather(props){
         <h5 className="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
-     <div className="col-6">
+     <div className="col-8">
          
          <img src={props.data.icon} alt="icon weather"/>
          <WeatherTemperature celsius={props.data.temperature}/>
          
      
      </div>
-<div className="col-6">
+<div className="col-4">
     <ul>
         <li>Humidity: {props.data.humidity}%</li>
         <li>Wind: {Math.round(props.data.wind)} km/h</li>
