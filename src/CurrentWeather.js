@@ -2,6 +2,7 @@ import React from "react";
 
 import CurrentDate from "./CurrentDate";
 
+
 export default function CurrentWeather(props){
     
     return (
@@ -10,12 +11,12 @@ export default function CurrentWeather(props){
                <h1>{props.data.city}</h1>
          
         <h5> <small>Last Updated:</small>{" "}<CurrentDate date={props.data.date}/></h5>
-        <h5 class="text-capitalize">{props.data.description}</h5>
+        <h5 className="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
      <div className="col-4">
          
-         <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="cloudy"/>
+         <img src={props.data.icon}/>
          
      <span className="temperature">{Math.round(props.data.temperature)}</span> <span className="units" >C</span>
      </div>
