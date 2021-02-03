@@ -14,7 +14,7 @@ export default function CurrentWeather(props){
         <h5 className="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
-     <div className="col-4">
+     <div className="col-5">
          
          <img src={props.data.icon}/>
          
