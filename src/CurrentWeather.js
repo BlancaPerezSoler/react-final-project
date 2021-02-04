@@ -14,12 +14,12 @@ export default function CurrentWeather(props){
         <h5 className="text-capitalize">{props.data.description}</h5>
  
  <div className="row">
-     <div className="col-6 col-md-4 col-lg-3">
+     <div className="col-3 col-md-4 col-lg-3">
          
          <img src={props.data.icon} alt="icon weather"/>
 
  </div>    
- <div className="col-6 col-md-4 col-lg-3">
+ <div className="col-3 col-md-4 col-lg-3">
          <WeatherTemperature celsius={props.data.temperature}/>
 </div>
      
