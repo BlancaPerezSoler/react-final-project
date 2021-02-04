@@ -30,7 +30,10 @@ export default function CurrentWeather(props){
     </ul>
 </div>
  </div>
+ 
     </div>
+
+    
     );
     
         
