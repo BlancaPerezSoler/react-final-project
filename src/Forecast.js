@@ -9,18 +9,20 @@ export default function Forecast(props){
     const [forecast, setForecast]= useState (null);
 
     function showForecast(response){
-        console.log(response.data);
-     setForecast(response.data);
-     setLoaded(true);
-
+     
+           setForecast(response.data)
+           setLoaded(true)
+           
     }
 
     if (loaded){
+        console.log(forecast)
         return(
+            
             <div className="Forecast row">
              <div className="col">
-                 10:00
-                 <WeatherIcon defaultCity={forecast.city.name}/> 
+                 {new Date(forecast.list[0].dt * 1000).getHours()}:00
+                 {forecast.list[0].weather[0].icon}
                  {Math.round(forecast.list[0].main.temp)}/ {Math.round(forecast.list[0].main.temp_min)}
              </div>
             </div>

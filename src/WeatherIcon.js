@@ -10,18 +10,16 @@ export default function WeatherIcon(props){
 
         setWeather({
             date: new Date (response.data.dt * 1000), 
-            icon:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+            icon:`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
         });
-        setCity()
+        setCity(props.defaultCity);
         setLoaded(true);
     }
 
    if(loaded){
-       return(
-      <div>
-          {weather.icon}
-      </div>
-       )
+       return<div>{weather.icon}</div>
+        
+
    } else{
       const apiKey= "bf3b0a962c0f2c5a4bea4daa33ad2c1d";
         let apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
