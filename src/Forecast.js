@@ -22,7 +22,7 @@ export default function Forecast(props){
             <div className="Forecast row">
              <div className="col">
                  {new Date(forecast.list[0].dt * 1000).getHours()}:00
-                 {forecast.list[0].weather[0].icon}
+                 <WeatherIcon defaultCity={forecast.city.name} />
                  {Math.round(forecast.list[0].main.temp)}/ {Math.round(forecast.list[0].main.temp_min)}
              </div>
             </div>
