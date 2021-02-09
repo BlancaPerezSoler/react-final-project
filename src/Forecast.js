@@ -1,6 +1,7 @@
 import axios from "axios";
 import React , {useState }from "react";
-import WeatherIcon from "./WeatherIcon";
+import ForecastNextHours from "./ForecastNextHours";
+import "./Forecast.css";
 
 
 export default function Forecast(props){
@@ -20,11 +21,11 @@ export default function Forecast(props){
         return(
             
             <div className="Forecast row">
-             <div className="col">
-                 {new Date(forecast.list[0].dt * 1000).getHours()}:00
-                 <WeatherIcon defaultCity={forecast.city.name} />
-                 {Math.round(forecast.list[0].main.temp)}/ {Math.round(forecast.list[0].main.temp_min)}
-             </div>
+                <ForecastNextHours forecast={forecast.list[0]} image={props.weatherIcon}/>
+               <ForecastNextHours forecast={forecast.list[1]} image={props.weatherIcon}/>
+               <ForecastNextHours forecast={forecast.list[2]} image={props.weatherIcon}/>
+               <ForecastNextHours forecast={forecast.list[3]} image={props.weatherIcon}/>               
+               
             </div>
         )
     } else{
