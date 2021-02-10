@@ -16,7 +16,7 @@ export default function Forecast(props){
            
     }
 
-    if (loaded){
+    if (loaded && props.city === forecast.city.name){
         console.log(forecast)
         return(
             
